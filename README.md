@@ -26,7 +26,7 @@ ethereum-block-indexer-service
          Header0                          Header1
 
 把 Header0 和 新 Header1 之間當作一段新的長度, 接著再切 n 段, 之後繼續上述的方式持續下去
-決定把 server.IndexerNumber 切出來是希望使用者可以根據自身電腦決定數字應該怎麼調整, 數字越大爬下來的數度會越快, 
+決定把 server.IndexerNumber 切出來是希望使用者可以根據自身電腦決定數字應該怎麼調整, 數字越大爬下來的速度會越快, 
 但也會越吃系統資源, 使用者重新調整後, 可以重啟服務,
 此服務在 init 的時候就會先把爬過的資料 cached 起來, 所以不用擔心重覆爬的問題
 
