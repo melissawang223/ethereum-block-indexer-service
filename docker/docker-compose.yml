@@ -1,23 +1,5 @@
 version: '3.0'
 services:
-    blockchain-api:
-        user: root
-        build:
-            context: ./api
-            dockerfile: Dockerfile
-        restart: always
-        tty: true
-        stdin_open: true
-        volumes:
-            - "/Users/melissa/HW/blockchain:/var/www/html/blockchain"
-        networks:
-            blockchain-net:
-                ipv4_address: 172.40.0.2
-        ports:
-            - "8070:80"
-        container_name: blockchain-api
-        hostname: block-chain-api
-        image: blockchain-api
     blockchain-db:
         user: root
         build:

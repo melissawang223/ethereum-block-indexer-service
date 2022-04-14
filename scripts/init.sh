@@ -11,7 +11,6 @@ fi
 
 # configuration file
 cp env/config_general.yml env/config.yml
-cp docker/docker-compose_general.yml docker/docker_compose.yml
 
 # install sql-migrate
 go get -v github.com/rubenv/sql-migrate

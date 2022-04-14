@@ -1,7 +1,9 @@
 server:
   host: "0.0.0.0"
-  port: 8075
+  port: 8080
   timezone: Asia/Taipei
+  rpcUrl: "https://data-seed-prebsc-2-s3.binance.org:8545/"
+  IndexerNumber: 10
 
 db:
   dialect: "mysql"
@@ -9,19 +11,10 @@ db:
   password: "123456"
   host: "0.0.0.0"
   port: 3307
-  dbname: "block"
+  dbname: "rf"
   flag: "charset=utf8mb4&parseTime=True&loc=Local&collation=utf8mb4_unicode_ci"
   interval: 60
   maxconn: 2
-
-redis:
-  host: "172.40.0.4"
-  port: 6379
-  database: 0
-  auth: "AeLP6RFYQJdzayTRLrWZ64NxbTh7yhNt"
-  max_idle: 80
-  max_active: 12000
-  idle_timeout: 2500
 
 
 http:
