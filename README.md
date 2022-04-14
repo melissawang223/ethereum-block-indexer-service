@@ -32,7 +32,7 @@ ethereum-block-indexer-service
 
 Build:
 make docker 先把 docker 利用 docker-compose 架起來(主要是需要db)
-make init   把需要的套件和 db migrate 上去
+make init   把需要的套件載下來和 db migrate 上去
 
 go run main.go 
 就會同時 listen on 8080 (可以在env/config.yml 修改) 用來打 api query
