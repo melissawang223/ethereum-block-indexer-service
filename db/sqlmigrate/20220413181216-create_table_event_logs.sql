@@ -1,0 +1,16 @@
+
+-- +migrate Up
+CREATE TABLE `event_logs` (
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `block_number` VARCHAR(36) NOT NULL,
+    `tx_hash` VARCHAR(100) NOT NULL COMMENT '',
+    `index` TEXT NOT NULL COMMENT '',
+    `data` TEXT NOT NULL COMMENT '',
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '創建時間',
+    `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新時間',
+    PRIMARY KEY (`id`)
+) CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='event_logs 資料';
+
+-- +migrate Down
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS `event_logs`;

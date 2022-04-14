@@ -1,0 +1,62 @@
+version: '3.0'
+services:
+    blockchain-api:
+        user: root
+        build:
+            context: ./api
+            dockerfile: Dockerfile
+        restart: always
+        tty: true
+        stdin_open: true
+        volumes:
+            - "/Users/melissa/HW/blockchain:/var/www/html/blockchain"
+        networks:
+            blockchain-net:
+                ipv4_address: 172.40.0.2
+        ports:
+            - "8070:80"
+        container_name: blockchain-api
+        hostname: block-chain-api
+        image: blockchain-api
+    blockchain-db:
+        user: root
+        build:
+            context: ./db
+            dockerfile: Dockerfile
+        volumes:
+            - "./db_data:/var/lib/mysql"
+        restart: always
+        networks:
+            blockchain-net:
+                ipv4_address: 172.40.0.3
+        ports:
+            - "3307:3306"
+        platform: linux/x86_64
+        container_name: blockchain-db
+        hostname: blockchain-api-db
+        image: blockchain-db
+    blockchain-redis:
+        user: root
+        build:
+            context: ./redis
+            dockerfile: Dockerfile
+        volumes:
+            - "./redis_data:/data"
+        restart: always
+        networks:
+            blockchain-net:
+                ipv4_address: 172.40.0.4
+        container_name: blockchain-redis
+        hostname: blockchain-redis
+        image: blockchain-redis
+
+
+
+networks:
+    blockchain-net:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                -
+                    subnet: 172.40.0.0/24

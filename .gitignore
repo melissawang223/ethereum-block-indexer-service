@@ -1,0 +1,19 @@
+# log file
+log/*.log
+
+# goland setting
+.idea/
+
+# config file
+db/dbconfig.yml
+env/config.yml
+
+# playground file
+src/playground/*
+
+# binary file
+ethereum-block-indexer-service
+
+# docker
+docker/db_data/*
+docker/redis_data/*
